@@ -1,0 +1,14 @@
+Para visualización
+
+install.packages("ggplot")
+install.packages("plotly")
+install.packages("wordcloud2")
+install.packages("RColorBrewer")
+install.packages("kableExtra")
+
+library(ggplot2)
+library(plotly)
+library(wordcloud2)
+library(RColorBrewer)
+library(kableExtra)
+devtools::install_github("gaospecial/wordcloud2")

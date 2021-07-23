@@ -1,0 +1,52 @@
+---
+title: "Exploratorio"
+author: "Andrea Gomez"
+date: "22/7/2021"
+output: html_document
+---
+
+
+## Librerias de trabajo 
+```{r message=FALSE, warning=FALSE, include=FALSE}
+#Instalar las librerias
+# install.packages("rtweet")
+# install.packages("tidyverse")
+# install.packages("data.table")
+# install.packages("tm")
+# install.packages("tidytext")
+
+#Cargar las librerias
+library(rtweet)
+library(tidyverse)
+library(data.table)
+library(tm)
+library(tidytext)
+```
+
+## Buscando datasets 
+
+Trendings de Búsqueda en twitter del 20 de julio en México
++ #EsLeyVeracruz
++ #AbortoLegalVeracruz
++ #QueSeaLeyVeracruz 
++ #TiempoDeGarantizar
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+TiempoDeGarantizar<- search_tweets("#TiempoDeGarantizar", n=1500, lang = "es", include_rts = FALSE)
+
+QueSeaLeyVeracruz  <- search_tweets("#QueSeaLeyVeracruz", n=1500,lang = "es", include_rts = FALSE) 
+
+EsLeyVeracruz <- search_tweets("#EsLeyVeracruz", n=1500, lang = "es", include_rts = FALSE)
+
+AbortoLegalVeracuz <- search_tweets("#AbortoLegalVeracruz", n=1500, lang = "es", include_rts = FALSE)
+```
+
+Exportamos en csv (del 15/7 al 22/7)
+
+```{r}
+write_as_csv(AbortoLegalVeracuz, "2207/AbortoLegalVeracruz2207.csv")
+write_as_csv(EsLeyVeracruz, "2207/EsLeyVeracruz2207.csv")
+write_as_csv(QueSeaLeyVeracruz, "2207/QueSeaLey2207.csv")
+write_as_csv(TiempoDeGarantizar, "2207/Tiempodegarantizar2207.csv")
+```
+
